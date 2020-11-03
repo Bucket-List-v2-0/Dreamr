@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# Bucket-List-v2.0
-Creating a bucket list 
-=======
 # code-collab
 
 ## First time Installation
@@ -34,4 +30,3 @@ Creating a bucket list
 - `npm install`
 - `npm run dev`
 
->>>>>>> 6c0da78b6339001e6c053d68c668fae095b03c07
