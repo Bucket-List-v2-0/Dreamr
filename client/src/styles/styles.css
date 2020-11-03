@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* main div full screen */
+
+html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Sign page */
+
+.login-form {
+  margin-top: 15em;
+}
+
+.sign-up-title {
+  display: flex;
+  justify-content: center;
+  font-size: 3em;
+  position: relative;
+  animation: title;
+  animation-duration: 2.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes title {
+  0% {
+    top: -500px
+  }
+  100% {
+   top: 0px
+  }
+}
+
+.form-details {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  position: relative;
+  animation-name: input;
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes input {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.login-field {
+  height: 2em;
+  border: 0;
+  border-bottom: 1px solid;
+  font-size: 1em;
+}
+
+#password-field {
+  margin-left: 5em;
+}
+
+.login-buttons {
+  margin-top: 3em;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.login-btn {
+  height: 2.5em;
+  width: 4em;
+  background-color: white;
+  border: none;
+  font-size: 1em;
+  animation-name: input;
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+.bucket-btn:hover, .login-btn:hover {
+  color: gray;
+}
+
+.bucket-btn, .bucket-input, .login-btn, .login-field:focus {
+  outline: none;
+}
+
+.user-page {
+  margin-top: 15em;
+}
+
+.bucket-title {
+  font-size: 3em;
+  position: relative;
+  animation: title;
+  animation-duration: 2.5s;
+  animation-fill-mode: forwards;
+}
+
+
+.activity-input {
+  display: flex;
+  justify-content: center;
+}
+
+.bucket-input {
+  margin-top: 3em;
+  height: 2em;
+  border: 0;
+  border-bottom: 1px solid;
+  font-size: 1em;
+  position: relative;
+  animation-name: input;
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.bucket-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.bucket-btn {
+  height: 2.5em;
+  width: 4em;
+  background-color: white;
+  border: none;
+  font-size: 1em;
+  position: relative;
+  animation-name: input;
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.card {
+  border: .1rem solid black;
+  width:8rem;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+.users__container {
+  display: flex;
+
+}
