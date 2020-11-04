@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const passport = require('passport');
 const { User } = require('../models/dbmodel');
+const cookieSession = require('cookie-session');
 
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
@@ -16,6 +17,10 @@ const authRouter = require('../routers/authRouter');
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieSession({ maxAge: 24 * 60 * 60 * 1000, keys: ['kfhaskfh'] }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/dist', express.static(path.resolve(__dirname, '../dist')));
 
@@ -33,6 +38,8 @@ passport.deserializeUser((id, done) => {
 		done(null, user);
 	});
 });
+
+app.use(passport.initialize());
 
 passport.use(
 	new GoogleStrategy(
@@ -54,21 +61,24 @@ passport.use(
 			// 	return done(err, user);
 			// });
 			// console.log('this is the outside');
-			User.findOne({ GoogleId: profile.id }).then((currentUser) => {
-				if (currentUser) {
-					//if we already have a record with the given profile ID
-					done(null, currentUser);
-				} else {
-					//if not, create a new user
-					new User({
-						GoogleId: profile.id,
-					})
-						.save()
-						.then((newUser) => {
-							done(null, newUser);
-						});
-				}
-			});
+			User.findOne({ GoogleId: profile.id })
+				.then((currentUser) => {
+					if (currentUser) {
+						//if we already have a record with the given profile ID
+						done(null, currentUser);
+					} else {
+						//if not, create a new user
+						new User({
+							GoogleId: profile.id,
+						})
+							.save()
+							.then((newUser) => {
+								done(null, newUser);
+							})
+							.catch(() => console.log('error'));
+					}
+				})
+				.catch(() => console.log('error in finding user'));
 		}
 	)
 );

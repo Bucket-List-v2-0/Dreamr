@@ -6,7 +6,7 @@ router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 
 //  google authentication callback
 router.get('/google/callback', passport.authenticate('google'), (req, res) => {
-	res.send('reached callback uri');
+	res.send(req.user);
 });
 
 module.exports = router;

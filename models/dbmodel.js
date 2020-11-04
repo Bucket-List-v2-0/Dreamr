@@ -30,6 +30,7 @@ const bucketListSchema = new Schema({
 	category: String,
 	description: String,
 	completed: String,
+	comments: [String],
 	user_id: {
 		type: Schema.Types.ObjectId,
 		ref: 'User',

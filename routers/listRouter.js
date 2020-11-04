@@ -13,6 +13,7 @@ router
 	.route('/:id')
 	.put(listController.updateListItem)
 	.delete(listController.deleteListItem)
-	.get(listController.getOneListItem);
+	.get(listController.getOneListItem)
+	.post(listController.addComment);
 
 module.exports = router;
