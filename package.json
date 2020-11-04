@@ -41,6 +41,7 @@
     "express-session": "^1.17.1",
     "html-webpack-plugin": "^4.5.0",
     "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.11",
     "nodemon": "^2.0.6",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",

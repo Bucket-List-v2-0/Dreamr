@@ -1,16 +1,40 @@
-const { Pool } = require("pg");
-require("dotenv").config();
+require('dotenv').config();
+const mongoose = require('mongoose');
 
-const { PG_URI } = process.env;
+const PG_URI = process.env.PG_URI;
 
-const pool = new Pool({
-  connectionString:
-    "postgres://nzhcrtym:aQhn348XnTStQ5h3BJ4KNsQSXQuXECfY@lallah.db.elephantsql.com:5432/nzhcrtym",
+mongoose
+	.connect(PG_URI, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		dbName: 'IterationProject',
+	})
+	.then(() => console.log('Connected to DB'))
+	.catch((err) => console.log(err));
+
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+	GoogleId: String,
+	DisplayName: String,
+	firstName: String,
+	lastName: String,
+	Image: String,
+	createAt: {
+		type: Date,
+		Default: Date.now,
+	},
 });
 
-module.exports = {
-  query: (text, params, callback) => {
-    // console.log('executed query',params, text);
-    return pool.query(text, params, callback);
-  },
-};
+const bucketListSchema = new Schema({
+	category: String,
+	description: String,
+	completed: String,
+	user_id: {
+		type: Schema.Types.ObjectId,
+		ref: 'User',
+	},
+});
+const Bucket = mongoose.model('Bucket', bucketListSchema);
+const User = mongoose.model('User', userSchema);
+module.exports = { User, Bucket };
