@@ -5,31 +5,31 @@ const jwtController = require("./controllers/jwtController");
 
 const router = Router();
 
-router.post(
-  "/signup",
-  userController.create,
-  jwtController.loginUser,
-  (req, res) => {
-    res.status(200).json(res.locals.user);
-  },
-);
+// router.post(
+//   "/signup",
+//   userController.create,
+//   jwtController.loginUser,
+//   (req, res) => {
+//     res.status(200).json(res.locals.user);
+//   },
+// );
 
-router.post(
-  "/login",
-  userController.validate,
-  jwtController.loginUser,
-  (req, res) => {
-    res.status(200).json(res.locals.user);
-  },
-);
+// router.post(
+//   "/login",
+//   userController.validate,
+//   jwtController.loginUser,
+//   (req, res) => {
+//     res.status(200).json(res.locals.user);
+//   },
+// );
 
-router.get("/verify", jwtController.isLoggedIn, (req, res) => {
-  res.status(200).json(res.locals);
-});
+// router.get("/verify", jwtController.isLoggedIn, (req, res) => {
+//   res.status(200).json(res.locals);
+// });
 
 router.post(
   "/saveActivity",
-  jwtController.isLoggedIn,
+  // jwtController.isLoggedIn,
   userController.createAct,
   (req, res) => {
     res.status(200).json(res.locals.user);

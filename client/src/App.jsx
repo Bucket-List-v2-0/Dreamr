@@ -5,9 +5,9 @@ import User from "./components/User";
 
 function App() {
   const [user, setUser] = useState({
-    username: "",
-    bucket_list: [],
-    loggedIn: "false",
+    username: "Jon",
+    bucket_list: ["testing file, clean code"],
+    loggedIn: "true",
   });
 
   useEffect(() => {
