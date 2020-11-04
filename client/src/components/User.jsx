@@ -46,6 +46,7 @@ function User({ userName }) {
   //   // console.log(e);
   // }
   return (
+    <a href="/auth/google">Sign In with Google</a>
     // <div className="user-page">
     //   <div className="bucket-title">Type in your Bucket List</div>
     //   <div className="activity-input">
@@ -66,7 +67,7 @@ function User({ userName }) {
     //   </div>
     //   <div className="users__container">{users}</div>
     // </div>
-    <UserCard name={Name} bucket={list} key={0} />
+    // <UserCard name={Name} bucket={list} key={0} />
   );
 }
 
