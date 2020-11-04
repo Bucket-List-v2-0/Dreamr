@@ -6,13 +6,12 @@ import User from "./components/User";
 function App() {
   const [user, setUser] = useState({
     username: "",
-    bucket_list: [],
-    loggedIn: "false",
+    loggedIn: "false"
   });
 
   useEffect(() => {
     axios
-      .get("/api/verify")
+      .get("/user", {username: user.username, password: user.password } )
       .then(({ data }) => {
         return setUser({
           username: data.user.username,
