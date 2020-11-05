@@ -1,12 +1,6 @@
 import React from 'react';
 
-
-// useEffect(() => {
-//   axios.get('/list')
-//   .then(res =>{
-    
-//   })
-
+//adding the users id from window.location.href
 const NotesContext = React.createContext({
   currentNote: null,
   notes: []

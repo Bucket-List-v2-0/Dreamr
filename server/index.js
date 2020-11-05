@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config(); // instead of saving it 
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -30,7 +30,7 @@ app.use('/list', listRouter);
 app.use('/auth', authRouter);
 
 passport.serializeUser((user, done) => {
-	done(null, user.id);
+	done(null, user);
 });
 
 passport.deserializeUser((id, done) => {
@@ -61,7 +61,7 @@ passport.use(
 			// 	return done(err, user);
 			// });
 			// console.log('this is the outside');
-			User.findOne({ GoogleId: profile.id })
+			User.find({ GoogleId: profile.id })
 				.then((currentUser) => {
 					if (currentUser) {
 						//if we already have a record with the given profile ID
@@ -111,10 +111,7 @@ app.get(
 	}
 );
 
-app.get('/user', (req, res) => {
-	consol.log('getting user data');
-	res.send(user);
-});
+
 
 app.get('/', (req, res) =>
 	res.status(200).sendFile(path.resolve(__dirname, '../index.html'))

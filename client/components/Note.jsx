@@ -20,7 +20,7 @@ const Note = ({note}) => {
       <p>{note.description}</p>
       <div className="btn-container">
         <button className="edit" onClick={() => dispatch({ type: 'SET_CURRENT_NOTE', payload: note})}>Edit</button>
-        <button className="delete" onClick={() => dispatch({type: 'DELETE_CURRENT_NOTE', payload: note.id})}>Delete</button>
+        <button className="delete" onClick={() => dispatch({type: 'DELETE_CURRENT_NOTE', payload: note._id})}>Delete</button>
       </div>
     </div>
   );

@@ -31,11 +31,14 @@ module.exports = {
 		publicPath: '/dist/',
 		historyApiFallback: true,
 		proxy: [
+			{ '/' : 'http://localhost:3000' // added in to not have to type out entire url. just end routes 
+		}, 
 			{
 				context: ['/auth/google'],
 				target: 'http://localhost:3000',
 			},
 		],
+		historyApiFallback: true
 	},
 	plugins: [new webpack.HotModuleReplacementPlugin()],
-};
+}

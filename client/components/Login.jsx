@@ -54,38 +54,38 @@ export default function Login() {
 
   return (
     <div className="login-form">
-    <div className="sign-up-title">
-      <p>Sign up for a free account</p>
-    </div>
-    <div className="form-details">
-      <form>
-        <input
-          type="text"
-          className="login-field"
-          placeholder="Username"
-          value={username || ""}
-          onChange={(e) => setLogin({ ...login, username: e.target.value })}
-        />
-        <input
-          type="password"
-          className="login-field"
-          id="password-field"
-          placeholder="Password"
-          value={password || ""}
-          onChange={(e) => setLogin({ ...login, password: e.target.value })}
-        />
-      </form>
-    </div>
-    <div className="login-buttons">
-      <button className="login-btn" onClick={signUp} type="submit">
-        Sign up
+      <div className="sign-up-title">
+        <p>Sign up for a free account</p>
+      </div>
+      <div className="form-details">
+        <form>
+          <input
+            type="text"
+            className="login-field"
+            placeholder="Username"
+            value={username || ""}
+            onChange={(e) => setLogin({ ...login, username: e.target.value })}
+          />
+          <input
+            type="password"
+            className="login-field"
+            id="password-field"
+            placeholder="Password"
+            value={password || ""}
+            onChange={(e) => setLogin({ ...login, password: e.target.value })}
+          />
+        </form>
+      </div>
+      <div className="login-buttons">
+        <button className="login-btn" onClick={signUp} type="submit">
+          Sign up
       </button>
-      <button className="login-btn" onClick={loginInfo} type="submit">
-        Login
+        <button className="login-btn" onClick={loginInfo} type="submit">
+          Login
       </button>
-<button className="login-btn"><a href="/auth/google">Sign In with Google</a>!</button>
+        <button className="login-btn"><a href="/auth/google">Sign In with Google</a>!</button>
+      </div>
     </div>
-  </div>
+
   )
 }
-  
