@@ -13,7 +13,7 @@ const listController = {
 	},
 
 	//Add a new document to the data base
-	createOneListItem: async (req, res) => {
+	createOneListItem: async (req, res, next) => {
 		try {
 			const { category, description } = req.body;
 			const itemList = new model.Bucket({
@@ -21,7 +21,8 @@ const listController = {
 				description,
 			});
 			await itemList.save();
-			res.json({ msg: 'created new itemList' });
+			// res.json({msg: "bucket added"});
+			return next()
 		} catch (err) {
 			return res.status(500).json({ msg: 'problem with createOneListItem' });
 		}

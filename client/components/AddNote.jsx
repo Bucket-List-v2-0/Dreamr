@@ -5,9 +5,10 @@ import NotesContext from '../context.jsx';
 
 
 
-const AddNote = () => {
-
-  const { dispatch } = useContext(NotesContext); 
+const AddNote = (props) => {
+  // console.log('inside add')
+  // console.log(props)
+  const { dispatch } = useContext(NotesContext);
   // const [category, setFirst] = useState('')
   // const [description , setSecond] = useState('')
   const [bucket, setBucket] = useState({
@@ -28,34 +29,35 @@ const AddNote = () => {
   // }, []); // add an arr as a second argument since we only wnat this to run onetime ie
 
   const handleChange = (e) => {
-    const { name, value } = e.target; 
+    const { name, value } = e.target;
     // whenever we type we want ot update local state
-    setBucket({ 
+    setBucket({
       ...bucket,
       [name]: value
     });
 
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // will run when we submit our new note
+
+
+    // const { category, description } = bucket; 
+
+    // axios.post('/listing/', { category : categroy, description: description })
+    // .then(() => console.log('added bucketlist item'))
+    // .catch(err => console.log(err))
+    await dispatch({ type: 'ADD_NOTE', payload: bucket });
+    console.log('changed list')
+    props.changeAdd(!props.add)
+    setBucket({
+      category: '',
+      description: '',
+    });
     e.preventDefault();
-
-    const { category, description } = bucket; 
-
-      // axios.post('/listing/', { category : categroy, description: description })
-      // .then(() => console.log('added bucketlist item'))
-      // .catch(err => console.log(err))
-
-      dispatch({type: 'ADD_NOTE', payload: bucket});
-      
-      setBucket({
-        category: '',
-        description: '',
-      }); 
   };
 
-  
+
 
   return (
     <div className="note-form">
@@ -66,7 +68,7 @@ const AddNote = () => {
       </form>
     </div>
   );
-} 
+}
 
-  
+
 export default AddNote;

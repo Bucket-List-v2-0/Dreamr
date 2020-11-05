@@ -7,7 +7,7 @@ const listController = require('../controllers/listController.js');
 router
 	.route('/')
 	.get(listController.getList)
-	.post(listController.createOneListItem);
+	.post(listController.createOneListItem, listController.getList);
 
 router
 	.route('/:id')
