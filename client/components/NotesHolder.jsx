@@ -5,6 +5,7 @@ import AddNote from './AddNote.jsx';
 import NoteList from './NoteList.jsx';
 import EditNotes from './EditNotes.jsx';
 import axios from 'axios';
+import regeneratorRuntime from 'regenerator-runtime';
 
 
 // reducer gives us back state and a dispatch function
@@ -15,22 +16,32 @@ import axios from 'axios';
 
   // console.log(state);
 
+  // const getList = async() => {
+  //   const response = await axios.get('/list')
+  //   console.log(response);
+  // }
+
+  console.log('this is the state', state);
+  console.log('this is state.notes', state.notes);
+
   useEffect(() => {
+
     axios.get('http://localhost:3000/list/')
     .then(res => {
-      console.log('result from db' ,res.data);
+      console.log('data from request', res.data);
       // let newState = [...state.notes, res.data]; 
-      // return {
-      //   ...state, 
-      //   notes: newState
-      // }
-    })
+      // console.log('this is the new state', newState);
+      dispatch({type: 'DATA_FROM_DB', payload: res.data});
+     })
+
     .catch(err =>{
       console.log(err);
     })
   },[])
+  
 
   // we wrap all child components with provider so we can pass down the state
+
   return (
    <NotesContext.Provider value={{state, dispatch}}>
      {state.currentNote === null ? (

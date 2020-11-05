@@ -60,6 +60,12 @@ export default function reducer(state, action) {
               notes: updatedNotes
             }
 
+          
+          case 'DATA_FROM_DB':
+            return {
+              ...state,
+              notes: action.payload
+            }
 
 
     default: 
