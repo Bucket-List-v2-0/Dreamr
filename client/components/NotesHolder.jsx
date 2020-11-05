@@ -16,9 +16,9 @@ import axios from 'axios';
   // console.log(state);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/list/')
+    axios.get('/list/')
     .then(res => {
-      console.log('result from db' ,res.data);
+      console.log('result from db' ,res);
       // let newState = [...state.notes, res.data]; 
       // return {
       //   ...state, 
