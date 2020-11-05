@@ -15,20 +15,20 @@ import axios from 'axios';
 
   // console.log(state);
 
-  useEffect(() => {
-    axios.get('/list/')
-    .then(res => {
-      console.log('result from db' ,res);
-      // let newState = [...state.notes, res.data]; 
-      // return {
-      //   ...state, 
-      //   notes: newState
-      // }
-    })
-    .catch(err =>{
-      console.log(err);
-    })
-  },[])
+  // useEffect(() => {
+  //   axios.get('/list/')
+  //   .then(res => {
+  //     console.log('result from db' ,res);
+  //     let newState = [...state.notes, res.data]; 
+  //     return {
+  //       ...state, 
+  //       notes: newState
+  //     }
+  //   })
+  //   .catch(err =>{
+  //     console.log(err);
+  //   })
+  // },[])
 
   // we wrap all child components with provider so we can pass down the state
   return (
