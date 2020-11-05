@@ -15,10 +15,12 @@ const listController = {
 	//Add a new document to the data base
 	createOneListItem: async (req, res, next) => {
 		try {
-			const { category, description } = req.body;
+			const { category, description, user_id } = req.body;
+			console.log(user_id)
 			const itemList = new model.Bucket({
 				category,
 				description,
+				user_id
 			});
 			await itemList.save();
 			// res.json({msg: "bucket added"});

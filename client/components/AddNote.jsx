@@ -41,13 +41,22 @@ const AddNote = (props) => {
   const handleSubmit = async (e) => {
     // will run when we submit our new note
 
+    let hrefWindowString = window.location.href;
+  
+    const googleId = hrefWindowString.substring(
+      hrefWindowString.lastIndexOf('/') + 1,
+      hrefWindowString.lastIndexOf('#')
+       ); 
+
+
+     
 
     // const { category, description } = bucket; 
 
     // axios.post('/listing/', { category : categroy, description: description })
     // .then(() => console.log('added bucketlist item'))
     // .catch(err => console.log(err))
-    await dispatch({ type: 'ADD_NOTE', payload: bucket });
+    await dispatch({ type: 'ADD_NOTE', payload: { bucket: bucket, user_id: googleId }});
     console.log('changed list')
     props.changeAdd(!props.add)
     setBucket({

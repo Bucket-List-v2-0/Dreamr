@@ -19,6 +19,7 @@ const userSchema = new Schema({
 	DisplayName: String,
 	firstName: String,
 	lastName: String,
+	password: String,
 	Image: String,
 	createAt: {
 		type: Date,
@@ -30,6 +31,7 @@ const bucketListSchema = new Schema({
 	category: String,
 	description: String,
 	comments: [String],
+	isEditing: {type: Boolean, default: 'false'},
 	user_id: String
 });
 const Bucket = mongoose.model('Bucket', bucketListSchema);

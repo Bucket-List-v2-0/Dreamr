@@ -36,7 +36,7 @@ const EditNotes = () => {
   return (
     <div className='note-form'>
       <form onSubmit={handleSubmit} action="">
-    <textarea ref={ref} onChange={handleChange} value={value} name='' id='' cols='30' rows='10'/>
+    <textarea ref={ref} onChange={handleChange} placeholder='Edit Description' value={value} name='' id='' cols='30' rows='10'/>
       <div style={{textAlign: 'right'}}>
         <button>Update Note</button>
       </div>
