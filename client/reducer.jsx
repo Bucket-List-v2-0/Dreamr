@@ -1,3 +1,5 @@
+
+
 export default function reducer(state, action) {
 
   // userReducer takes in two things: 
@@ -25,10 +27,10 @@ export default function reducer(state, action) {
 
         case 'ADD_NOTE':
           const newNote = {
-            id: Math.floor(Math.random() * 100),
-            text: action.payload
+            category: action.payload.category,
+            description: action.payload.description
           }
-
+            
           const addedNotes = [...state.notes, newNote];
           return {
             ...state, 
