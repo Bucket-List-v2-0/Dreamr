@@ -1,14 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import axios from "axios";
-import Login from "./components/Login";
-import User from "./components/User";
+import NotesHolder from './components/NotesHolder';
+import Login from './components/Login'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+
+
 
 function App() {
   return (
-    <BucketProvider>
-      <Login />
-      <User />
-    </BucketProvider>
+
+      <Router>
+        <Route path = '/' exact component = {NotesHolder}/>
+        <Route path = '/home/:id' component = {NotesHolder}/>
+        <Route path = '/login' component = {Login}/>
+      </Router>
+
+      
   );
 }
 

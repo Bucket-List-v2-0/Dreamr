@@ -70,6 +70,8 @@ passport.use(
 						//if not, create a new user
 						new User({
 							GoogleId: profile.id,
+							DisplayName: profile.displayName,
+							Image: profile.photos[0].value,
 						})
 							.save()
 							.then((newUser) => {

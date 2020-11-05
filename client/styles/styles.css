@@ -1,21 +1,21 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
 }
 
 /* main div full screen */
 
-html {
+/* html {
   height: 100%;
   margin: 0;
   display: flex;
   justify-content: center;
-}
-
+} */
+ */
 
 /* Sign page */
 
-.login-form {
+/* .login-form {
   margin-top: 15em;
 }
 
@@ -132,9 +132,9 @@ html {
   display: flex;
   justify-content: center;
   margin-top: 2em;
-}
+} */
 
-.bucket-btn {
+/* .bucket-btn {
   height: 2.5em;
   width: 4em;
   background-color: white;
@@ -161,4 +161,79 @@ html {
 .users__container {
   display: flex;
 
+} */
+
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+nav {
+  padding: 20px 10px;
+  color: white;
+  background: grey;
+}
+
+.note-form {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.note-form input {
+  padding: 3px 3px;
+  outline: none;
+}
+
+.note-form button {
+  margin-left: 10px;
+  color: white;
+  background: #007bff;
+  padding: 5px 10px;
+  border: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.note {
+  width: 20%;
+  margin: 10px;
+  padding: 13px;
+  border-radius: 5px;
+  border: solid lightgray 1px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-container button {
+  margin-right: 10px;
+}
+
+.edit {
+  color: white;
+  background: #007bff;
+  padding: 5px 10px;
+  border: none;
+}
+
+.delete {
+  color: white;
+  background: #dc3545;
+  padding: 5px 10px;
+  border: none;
 }

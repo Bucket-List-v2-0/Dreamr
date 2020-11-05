@@ -13,8 +13,8 @@ const NoteList = () => {
   // note arg in map func is the note object passed down from the state 
   return (
     <div className="notes-container">
-      {state.notes.map((note, i) => {
-        return <Note note={note} key={i} />
+      {state.notes.map((note) => {
+        return <Note note={note} key={note._id} />
       })}
     </div>
   );
