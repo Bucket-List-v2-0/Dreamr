@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import Login from "./components/Login";
-import User from "./components/User";
+import React, { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
+import Login from './components/Login';
+import User from './components/User';
 
 function App() {
-  return (
-    <BucketProvider>
-      <Login />
-      <User />
-    </BucketProvider>
-  );
+	return (
+		<BucketProvider>
+			<Login />
+			<User />
+		</BucketProvider>
+	);
 }
 
 // useEffect(() => {
