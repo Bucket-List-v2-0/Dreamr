@@ -1,3 +1,4 @@
+import axios from "axios";
 
 
 export default function reducer(state, action) {
@@ -26,15 +27,24 @@ export default function reducer(state, action) {
         }
 
         case 'ADD_NOTE':
-          const newNote = {
-            category: action.payload.category,
-            description: action.payload.description
-          }
+          const {category, description} = action.payload;
+          const newBucket = { category, description };
+
+          axios.post('http://localhost:3000/list/', newBucket)
+          .then(res => {
+            console.log('we are in the reducer and added', res);
+          })
+          .catch(err => console.log(err)); 
+
+          // const newNote = {
+          //   category: action.payload.category,
+          //   description: action.payload.description
+          // }
             
-          const addedNotes = [...state.notes, newNote];
+          // const addedNotes = [...state.notes, newBucket];
           return {
             ...state, 
-            notes: addedNotes // updated notes with addedNotes variable 
+            // notes: addedNotes // updated notes with addedNotes variable. did not need since we're using useEffect on home page and setting state as the dependency array
           }
 
           case 'UPDATE_NOTE':

@@ -37,7 +37,7 @@ import regeneratorRuntime from 'regenerator-runtime';
     .catch(err =>{
       console.log(err);
     })
-  },[])
+  },[state])
   
 
   // we wrap all child components with provider so we can pass down the state
