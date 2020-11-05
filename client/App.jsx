@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Login from "./components/Login";
 import User from "./components/User";
-import { BucketProvider } from "./components/BucketContext";
 
 function App() {
   return (

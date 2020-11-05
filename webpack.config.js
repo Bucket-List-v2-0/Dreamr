@@ -31,7 +31,7 @@ module.exports = {
     publicPath: "/dist/",
     proxy: [
       {
-        context: ["/api/**"],
+        context: ["/auth/google"],
         target: "http://localhost:3000",
       },
     ],
