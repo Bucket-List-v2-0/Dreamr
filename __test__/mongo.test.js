@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const regeneratorRuntime = require('regenerator-runtime');
-const { User, Bucket } = require('./models/dbmodel.js');
+const { User, Bucket } = require('../models/dbmodel.js');
 const userData = {
 	GoogleId: 'TekLoon',
 	DisplayName: 'Male',
