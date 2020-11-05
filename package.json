@@ -22,10 +22,6 @@
     "url": "https://github.com/calibeach/code-collab/issues"
   },
   "homepage": "https://github.com/calibeach/code-collab#readme",
-  "jest": {
-    "globalSetup": "./jest-setup.js",
-    "globalTeardown": "./jest-teardown.js"
-  },
   "dependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
