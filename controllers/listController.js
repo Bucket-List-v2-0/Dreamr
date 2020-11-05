@@ -15,11 +15,10 @@ const listController = {
 	//Add a new document to the data base
 	createOneListItem: async (req, res) => {
 		try {
-			const { category, description, completed } = req.body;
+			const { category, description } = req.body;
 			const itemList = new model.Bucket({
 				category,
 				description,
-				completed,
 			});
 			await itemList.save();
 			res.json({ msg: 'created new itemList' });
@@ -31,10 +30,10 @@ const listController = {
 	//update a list item
 	updateListItem: async (req, res) => {
 		try {
-			const { category, description, completed } = req.body;
+			const { category, description } = req.body;
 			await model.Bucket.findByIdAndUpdate(
 				{ _id: req.params.id },
-				{ category, description, completed }
+				{ category, description }
 			);
 			res.json({ msg: 'updated list' });
 		} catch (err) {

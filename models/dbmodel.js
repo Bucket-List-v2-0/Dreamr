@@ -29,12 +29,8 @@ const userSchema = new Schema({
 const bucketListSchema = new Schema({
 	category: String,
 	description: String,
-	completed: String,
 	comments: [String],
-	user_id: {
-		type: Schema.Types.ObjectId,
-		ref: 'User',
-	},
+	user_id: String
 });
 const Bucket = mongoose.model('Bucket', bucketListSchema);
 const User = mongoose.model('User', userSchema);

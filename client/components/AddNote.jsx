@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import NotesContext from '../context.jsx';
 
 
@@ -8,24 +8,32 @@ import NotesContext from '../context.jsx';
 const AddNote = () => {
 
   const { dispatch } = useContext(NotesContext); 
-  const [value, setValue] = useState(''); // this is local state for our add component
+  // const [category, setFirst] = useState('')
+  // const [description , setSecond] = useState('')
+  const [bucket, setBucket] = useState({
+    category: '',
+    description: '',
+  }); // this is local state for our add component
   // set state is for updating state which is defualt of an empty string
 
 
 
 
-  let ref = useRef(); // we want a reference to it so that we focus on that specific input 
+  // let ref = useRef(); // we want a reference to it so that we focus on that specific input 
 
 
-  useEffect(() => {
-    // when this component renders, useEffect will run whatever is inside the function
-    ref.current.focus() //focuses on input so we can go straight to typing on it 
-  }, []); // add an arr as a second argument since we only wnat this to run onetime ie
+  // useEffect(() => {
+  //   // when this component renders, useEffect will run whatever is inside the function
+  //   ref.current.focus() //focuses on input so we can go straight to typing on it 
+  // }, []); // add an arr as a second argument since we only wnat this to run onetime ie
 
   const handleChange = (e) => {
+    const { name, value } = e.target; 
     // whenever we type we want ot update local state
-    setValue(e.target.value);
-
+    setBucket({ 
+      ...bucket,
+      [name]: value
+    });
 
   };
 
@@ -33,24 +41,32 @@ const AddNote = () => {
     // will run when we submit our new note
     e.preventDefault();
 
-    //prevent person from not typing. can also put require in input attribute
-    if (value.trim() === '') {
-      alert('Cannot add a blank note');
-    } else {
-      // if it is a valid note then 
-      dispatch({type: 'ADD_NOTE', payload: value});
-      setValue(''); 
-    }
+    const { category, description } = bucket; 
+
+      // axios.post('/listing/', { category : categroy, description: description })
+      // .then(() => console.log('added bucketlist item'))
+      // .catch(err => console.log(err))
+
+      dispatch({type: 'ADD_NOTE', payload: bucket});
+      
+      setBucket({
+        category: '',
+        description: '',
+      }); 
   };
+
+  
 
   return (
     <div className="note-form">
-      <form onSubmit={handleSubmit} action="">
-        <input type="text" ref={ref} onChange={handleChange} value={value} />
-        <button>Add Note</button>
+      <form onSubmit={handleSubmit} >
+        <input type="text" required placeholder='Categories' name='category' onChange={handleChange} value={bucket.category} />
+        <input type="text" placeholder='Description' name='description' onChange={handleChange} value={bucket.description} />
+        <button />
       </form>
     </div>
   );
-}
+} 
 
+  
 export default AddNote;
