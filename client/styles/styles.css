@@ -11,11 +11,10 @@
   display: flex;
   justify-content: center;
 } */
- */
 
 /* Sign page */
 
-/* .login-form {
+.login-form {
   margin-top: 15em;
 }
 
@@ -31,10 +30,10 @@
 
 @keyframes title {
   0% {
-    top: -500px
+    top: -500px;
   }
   100% {
-   top: 0px
+    top: 0px;
   }
 }
 
@@ -88,6 +87,7 @@
   animation-fill-mode: forwards;
   opacity: 0;
 }
+/*
 .bucket-btn:hover, .login-btn:hover {
   color: gray;
 }
@@ -163,12 +163,11 @@
 
 } */
 
-
 * {
   box-sizing: border-box;
 }
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 nav {
