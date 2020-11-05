@@ -111,6 +111,11 @@ app.get(
 	}
 );
 
+app.get('/user', (req, res) => {
+	consol.log('getting user data');
+	res.send(user);
+});
+
 app.get('/', (req, res) =>
 	res.status(200).sendFile(path.resolve(__dirname, '../index.html'))
 );
