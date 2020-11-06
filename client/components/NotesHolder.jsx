@@ -15,19 +15,25 @@ const NotesHolder = () => {
   const [state, dispatch] = useReducer(notesReducer, initialState);
   const [adding, setAdd] = useState(true);
 
+  // console.log(window.location.href)
 
-
-  // console.log('this is the state', state);
-  // console.log('this is state.notes', state.notes);
+  let hrefWindowString = window.location.href;
+  
+  const googleId = hrefWindowString.substring(
+    hrefWindowString.lastIndexOf('/') + 1,
+    hrefWindowString.lastIndexOf('#')
+      ); 
 
   useEffect(() => {
+
+    // console.log(googleId);
 
     axios.get('http://localhost:3000/list/')
       .then(res => {
         console.log('data from request', res.data);
         // let newState = [...state.notes, res.data]; 
         // console.log('this is the new state', newState);
-        dispatch({ type: 'DATA_FROM_DB', payload: res.data });
+        dispatch({ type: 'DATA_FROM_DB', payload: {dbData: res.data, user_id: googleId }});
       })
 
       .catch(err => {
@@ -44,7 +50,7 @@ const NotesHolder = () => {
 
   return (
     <NotesContext.Provider value={{ state, dispatch }}>
-      {/* {state.currentNote === null ? ( */}
+      {state.currentNote === null ? (
       <React.Fragment>
         <div className="sign-up-title">
           <p>Bucket List V.2.0</p>
@@ -52,7 +58,7 @@ const NotesHolder = () => {
         <AddNote add={adding} changeAdd={tester} />
         <NoteList />
       </React.Fragment>
-      {/* ) : <EditNotes /> } */}
+      ) : <EditNotes /> }
 
     </NotesContext.Provider>
   );

@@ -58,4 +58,10 @@ userController.deleteUser = (req, res, next) => {
   });
 };
 
+
+userController.find = (req,res,next) =>{
+
+  next()
+}
+
 module.exports = userController;

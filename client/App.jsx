@@ -11,9 +11,8 @@ function App() {
 
       <Router>
         <Switch>
-        <Route path = '/' exact component = {NotesHolder}/>
+        <Route path = '/' exact component ={Login}/>
         <Route path = '/home/:id' component = {NotesHolder}/>
-        <Route exact path = '/login' component = {Login}/>
         </Switch>
       </Router>
 

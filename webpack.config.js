@@ -31,9 +31,6 @@ module.exports = {
 		publicPath: '/dist/',
 		proxy: [
 			{
-				'/': 'http://localhost:3000', // added in to not have to type out entire url. just end routes
-			},
-			{
 				context: ['/auth/google'],
 				target: 'http://localhost:3000',
 			},
