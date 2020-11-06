@@ -55,6 +55,7 @@ html {
   border-bottom: 1px solid;
   font-size: 1em;
   padding: 1em;
+  border: 1px solid rgb(174,238,236)
 }
 #password-field {
   margin-left: 5em;
@@ -68,7 +69,7 @@ html {
   height: 2.5em;
   width: 7em;
   border-radius: 5px;
-  background-color: white;
+  /* background-color: white; */
   border: none;
   font-size: 1em;
   animation-name: input;
@@ -77,6 +78,7 @@ html {
   animation-fill-mode: forwards;
   opacity: 0;
   margin: 1em;
+  border: 1px solid rgb(174,238,236)
 }
 
 #google_img {
