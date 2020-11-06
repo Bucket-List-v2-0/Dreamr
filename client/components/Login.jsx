@@ -64,6 +64,6 @@ export default function Login() {
         <button className="login-btn"><a href="/auth/google">Sign In with Google</a>!</button>
       </div>
     </div>
+
   )
 }
-
