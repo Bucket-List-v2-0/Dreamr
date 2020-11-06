@@ -39,7 +39,7 @@ const NotesHolder = () => {
       .catch(err => {
         console.log(err);
       })
-  }, [adding])
+  }, [adding]);
 
 
   function tester(something) {

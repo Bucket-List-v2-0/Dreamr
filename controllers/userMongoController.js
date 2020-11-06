@@ -33,7 +33,6 @@ userMController.addUser = (req,res,next) =>{
 
 
 userMController.login = (req,res,next) =>{
-	console.log('inside the login')
 	model.User.find({DisplayName: req.body.name, password: req.body.password}, (err, result) => {
 		if (err) {
 			console.log('there was an error', err);
@@ -57,7 +56,6 @@ userMController.login = (req,res,next) =>{
 userMController.find = (req,res,next) => {
 	model.Bucket.find({user_id : req.body.user_id})
 	.then(result =>{
-		console.log(result)
 		res.locals.bucket = result
 	})
 	next()

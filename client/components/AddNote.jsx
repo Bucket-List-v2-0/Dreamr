@@ -73,7 +73,7 @@ const AddNote = (props) => {
       <form onSubmit={handleSubmit} >
         <input type="text" required placeholder='Categories' name='category' onChange={handleChange} value={bucket.category} />
         <input type="text" placeholder='Description' name='description' onChange={handleChange} value={bucket.description} />
-        <button />
+        <button style={{'background': 'transparent'}} />
       </form>
     </div>
   );

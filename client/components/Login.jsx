@@ -33,7 +33,7 @@ export default function Login() {
   return (
     <div className="login-form">
       <div className="sign-up-title">
-        <p>Sign up for a free account</p>
+        <p className="bigTitle" >Sign up for a free account</p>
       </div>
       <div className="form-details">
         <form>
@@ -61,7 +61,7 @@ export default function Login() {
         <button className="login-btn" onClick={loginInfo} type="submit">
           Login
       </button>
-        <button className="login-btn"><a href="/auth/google">Sign In with Google</a>!</button>
+        <div className="google-container"><a href="/auth/google"><img id="google_img" src="https://assets.stickpng.com/images/5847f9cbcef1014c0b5e48c8.png"></img></a></div>
       </div>
     </div>
 

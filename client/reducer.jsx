@@ -12,7 +12,6 @@ export default function reducer(state, action) {
       // console.log(action.payload);
       // console.log(action.payload.isEditing);
       // action.payload.isEditing = true;
-      console.log(action.payload);
       return {
         ...state,
         // what we want to do is update current note
