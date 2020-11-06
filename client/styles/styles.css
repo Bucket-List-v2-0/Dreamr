@@ -1,171 +1,108 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
 }
-
 /* main div full screen */
-
-/* html {
+html {
   height: 100%;
   margin: 0;
   display: flex;
   justify-content: center;
-} */
-
+}
 /* Sign page */
-
 .login-form {
-	margin-top: 15em;
-}
-
-.sign-up-title {
-	display: flex;
-	justify-content: center;
-	font-size: 3em;
-	position: relative;
-	animation: title;
-	animation-duration: 2.5s;
-	animation-fill-mode: forwards;
-}
-
-@keyframes title {
-	0% {
-		top: -500px;
-	}
-	100% {
-		top: 0px;
-	}
-}
-
-.form-details {
-	display: flex;
-	justify-content: center;
-	margin-top: 2em;
-	position: relative;
-	animation-name: input;
-	animation-delay: 2s;
-	animation-duration: 2s;
-	animation-fill-mode: forwards;
-	opacity: 0;
-}
-
-@keyframes input {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 100%;
-	}
-}
-
-.login-field {
-	height: 2em;
-	border: 0;
-	border-bottom: 1px solid;
-	font-size: 1em;
-}
-
-#password-field {
-	margin-left: 5em;
-}
-
-.login-buttons {
-	margin-top: 3em;
-	display: flex;
-	justify-content: space-evenly;
-}
-
-.login-btn {
-	height: 2.5em;
-	width: 4em;
-	background-color: white;
-	border: none;
-	font-size: 1em;
-	animation-name: input;
-	animation-delay: 2s;
-	animation-duration: 2s;
-	animation-fill-mode: forwards;
-	opacity: 0;
-}
-/*
-.bucket-btn:hover, .login-btn:hover {
-  color: gray;
-}
-
-.bucket-btn, .bucket-input, .login-btn, .login-field:focus {
-  outline: none;
-}
-
-.user-page {
   margin-top: 15em;
 }
-
-.bucket-title {
+.sign-up-title {
+  display: flex;
+  justify-content: center;
   font-size: 3em;
   position: relative;
   animation: title;
   animation-duration: 2.5s;
   animation-fill-mode: forwards;
 }
-
-
-.activity-input {
+@keyframes title {
+  0% {
+    top: -500px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+.form-details {
   display: flex;
   justify-content: center;
+  margin-top: 2em;
+  position: relative;
+  animation-name: input;
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
-
-.bucket-input {
-  margin-top: 3em;
+@keyframes input {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.login-field {
   height: 2em;
   border: 0;
   border-bottom: 1px solid;
   font-size: 1em;
-  position: relative;
-  animation-name: input;
-  animation-delay: 2s;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  opacity: 0;
+  padding: 1em;
+  border: 1px solid rgb(174,238,236)
 }
-
-.bucket-button {
+#password-field {
+  margin-left: 5em;
+}
+.login-buttons {
+  margin-top: 3em;
   display: flex;
   justify-content: center;
-  margin-top: 2em;
-} */
-
-/* .bucket-btn {
+}
+.login-btn {
   height: 2.5em;
-  width: 4em;
-  background-color: white;
+  width: 7em;
+  border-radius: 5px;
+  /* background-color: white; */
   border: none;
   font-size: 1em;
-  position: relative;
   animation-name: input;
   animation-delay: 2s;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   opacity: 0;
+  margin: 1em;
+  border: 1px solid rgb(174,238,236)
 }
 
-.card {
-  border: .1rem solid black;
-  width:8rem;
-  height: min-content;
+#google_img {
+  height: 45px; 
+  width: 45px;
+  animation-name: input;
+	animation-delay: 2s;
+	animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.google-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin: 1rem;
+  margin-left: 1em;
 }
 
-.users__container {
-  display: flex;
-
-} */
 
 * {
 	box-sizing: border-box;
 }
+
 body {
   font-family: "Roboto", sans-serif;
   background: rgb(137,228,225);
@@ -175,7 +112,7 @@ body {
 nav {
 	padding: 20px 10px;
 	color: white;
-	background: grey;
+	background: grey; 
 }
 
 .note-form {
@@ -186,7 +123,8 @@ nav {
 
 .note-form input {
 	padding: 3px 3px;
-	outline: none;
+  outline: none;
+  border: 1px solid rgb(174,238,236) 
 }
 
 .note-form button {
@@ -205,7 +143,7 @@ nav {
 .notes-container {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+  justify-content: center;
 }
 
 .note {
@@ -213,7 +151,9 @@ nav {
   margin: 10px;
   padding: 13px;
   border-radius: 5px;
-  border: solid black 1px;
+  /* border: solid black 1px; */
+  border: 1px solid rgb(174,238,236) ;
+  background-color: rgba(255, 255, 255, 0.452);
 }
 
 .btn-container {
@@ -227,24 +167,24 @@ nav {
 
 .edit {
   color: black; 
-  background: rgb(174,238,236);
-  background: radial-gradient(circle, rgba(174,238,236,1) 8%, rgba(56,246,168,1) 100%);
+  background: rgb(109 218 215);
   padding: 5px 10px;
   border: none;
+  border-radius: 4px;
 }
 
 .delete {
-  color: black;
-  background: rgb(238,182,174);
-  background: radial-gradient(circle, rgba(238,182,174,1) 0%, rgba(246,56,56,1) 100%);
+  color: white;
+  background: rgb(243 128 111);
   padding: 5px 10px;
   border: none;
+  border-radius: 4px;
 }
 
-
+/* 
 p {
   color: black;
-}
+} */
 
 input{
   margin-right: 20px;
@@ -254,4 +194,13 @@ input{
 
 .small-font {
   color: rgb(32, 30, 30);
+  padding-bottom:1em;
 }
+
+.CatAndDes {
+text-decoration: underline;
+}
+
+.sign-up-title{
+  color: rgb(116 249 244);
+} 

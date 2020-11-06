@@ -36,4 +36,6 @@ const bucketListSchema = new Schema({
 });
 const Bucket = mongoose.model('Bucket', bucketListSchema);
 const User = mongoose.model('User', userSchema);
+
+
 module.exports = { User, Bucket };

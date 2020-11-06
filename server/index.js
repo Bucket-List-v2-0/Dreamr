@@ -53,7 +53,6 @@ passport.use(
 		//done is called to tell passport that we have finished looking up or creating a user
 		function (accessToken, refreshToken, profile, done) {
 			//passport callback function
-			console.log('inside express');
 			// should have the part where we add users in db somewhere here
 			// console.log(profile);
 			// User.findOrCreate({ GoogleId: profile.id }, function (err, user) {
@@ -61,7 +60,7 @@ passport.use(
 			// 	return done(err, user);
 			// });
 			// console.log('this is the outside');
-			User.find({ GoogleId: profile.id })
+			User.findOne({ GoogleId: profile.id })
 				.then((currentUser) => {
 					if (currentUser) {
 						//if we already have a record with the given profile ID
