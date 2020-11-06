@@ -9,46 +9,24 @@ export default function Login() {
   const { username, password } = login;
 
   function loginInfo(e) {
-    e.preventDefault();
-    fetch("/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(login),
+    axios.get('http://localhost:3000/user/login', {name: username, pass: password})
+    .then(result => {
+      if(result.status === 203){
+        console.log('no user')
+      }
+      else{
+        window.location.replace('http://localhost:8080/home/'+result.data + '#')
+      }
     })
-      .then((res) => res.json())
-      .then((data) => {
-        setLogin("");
-        if (data) {
-          logIn(data);
-        } else {
-          return null;
-        }
-      })
-      .catch((err) => console.log(err));
+    .catch(err => console.log(err))
   }
 
   function signUp(e) {
-    e.preventDefault();
-    fetch("/api/signup", {
-      method: "POST",
-      headers: {
-        // Accept: 'application/json',
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(login),
+    axios.post('http://localhost:3000/user/add', {name : username, pass: password})
+    .then(result => {
+      window.location.replace('http://localhost:8080/home/'+result.data + "#")
     })
-      .then((res) => res.json())
-      .then((data) => {
-        setLogin("");
-        if (data) {
-          logIn(data);
-        } else {
-          return null;
-        }
-      })
-      .catch((err) => console.log(err));
+    .catch(err => {console.log(err)})
   }
 
 
@@ -86,6 +64,6 @@ export default function Login() {
         <button className="login-btn"><a href="/auth/google">Sign In with Google</a>!</button>
       </div>
     </div>
+
   )
 }
-

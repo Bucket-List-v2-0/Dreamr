@@ -9,6 +9,10 @@ export default function reducer(state, action) {
 
   switch (action.type) {
     case 'SET_CURRENT_NOTE':
+      // console.log(action.payload);
+      // console.log(action.payload.isEditing);
+      // action.payload.isEditing = true;
+      console.log(action.payload);
       return {
         ...state,
         // what we want to do is update current note
@@ -27,14 +31,16 @@ export default function reducer(state, action) {
         .catch(err => console.log(err));
 
       return {
+        ...state,
         // since we are updating the notes array we just need to reassign it to the 
         // value of the deletedNotes 
         notes: deletedNotes
       }
 
     case 'ADD_NOTE':
-      const { category, description } = action.payload;
-      const newBucket = { category, description };
+      const { category, description } = action.payload.bucket;
+      const  { user_id } = action.payload;
+      const newBucket = { category, description, user_id };
 
 
       console.log('we are adding')
@@ -54,12 +60,16 @@ export default function reducer(state, action) {
     case 'UPDATE_NOTE':
       const updatedNote = {
         ...state.currentNote,
-        text: action.payload
+        description: action.payload
       }
+
+      axios.put(`http://localhost:3000/list/${state.currentNote._id}`, updatedNote)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
 
       // need the index of the notes so that we know where in the array that note resides 
       const updatedNoteIndex = state.notes.findIndex(
-        note => note.id === state.currentNote.id
+        note => note._id === state.currentNote._id
       )
 
       const updatedNotes = [
@@ -78,7 +88,7 @@ export default function reducer(state, action) {
     case 'DATA_FROM_DB':
       return {
         ...state,
-        notes: action.payload
+        notes: action.payload.dbData
       }
 
 
